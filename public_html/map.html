@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
     <head>
-        <!-- Leaflet CSS and JS--->
+    	<!-- Leaflet CSS and JS--->
                 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" 
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -12,29 +12,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="search.css">
-        <link rel="stylesheet" type="text/css" href="map.css">
-		
-
     </head>
     <body>
         <header>
             <div>
-                <p>Eco-Valencia</p>
+                <h1>Eco-Valencia</h1>
             </div>
             <div class="menu">
-                <a href='#'>Inicio</a>
-                <a href='#'>Informacion</a>
-                <a href='#'>Buscador</a>
-                <a href='#'>Mapa</a>
-                <a href='#'>Canjear</a>
-                <a href='#'>Perfil</a>
+                <a href='index.html'>Inicio</a>
+                <a href='info.html'>Informacion</a>
+                <a href='search.html'>Buscador</a>
+                <a id='here' href='map.html'>Mapa</a>
+                <a href='trade.html'>Canjear</a>
+                <a href='user.html'>Perfil</a>
             </div>
         </header>
-      
         
-        <!-- CUERPO -->
-        <div>
+        
+        <!-- MAIN -->
+        <div id='map'>
             <div id="mapid" style="width: 600px; height: 400px;"></div>
 			<script>
 
@@ -108,14 +104,11 @@
                 <p>Tel. (+34) 555 - 555 - 555</p>
             </div>
             <div>
-                <img alt='logo' src="img/fb.png">
-                <img alt='logo' src="img/tw.png">
-                <img alt='logo' src="img/in.png">
-                <img alt='logo' src="img/mail.png">
+                <img alt='facebook' src="img/fb.png">
+                <img alt='twitter' src="img/tw.png">
+                <img alt='instagram' src="img/in.png">
+                <img alt='mail' src="img/mail.png">
             </div>
         </footer>
     </body>
 </html>
-
-
-
