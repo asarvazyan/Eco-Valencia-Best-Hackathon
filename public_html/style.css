@@ -31,11 +31,6 @@ body > header {
     justify-content: space-between;
 }
 
-img {
-    width: 42px;
-    height: 42px;
-}
-
 /* titulo */
 header > div:first-of-type {
     display: flex;
@@ -83,8 +78,8 @@ body > div {
     background-color: #FFE4D7;
     width: 85%;
     margin: 0 auto 0 auto;
-    align-self: stretch;
-    
+    height: 100%;
+    overflow-y: auto;
 }
 /* end Main */
 
@@ -94,6 +89,7 @@ footer {
     flex-direction: column;
     background-color: red;
     justify-content: center;
+    position: relative;
 }
 
 footer > div {
@@ -149,6 +145,12 @@ footer img {
 #inicio img {
     width: 250px;
     height: 250px;
+}
+
+
+
+#info > div {
+    display: flex;
 }
 
 
@@ -233,4 +235,8 @@ footer img {
 #user button:hover {
     border: 1px solid #4F8BA5;
     background-color: #69A3BC;
+}
+
+#trade {
+    
 }
