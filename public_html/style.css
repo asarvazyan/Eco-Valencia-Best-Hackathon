@@ -16,7 +16,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 800px;
     background-color: black;
 }
 
@@ -24,28 +23,25 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 30%;
     background-color: aqua;
+    justify-content: space-between;
 }
 
-/* logo */
+img {
+    width: 42px;
+    height: 42px;
+}
+
+/* titulo */
 header > div:first-of-type {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* provisional */
-img {
-    width: 110px;
-    height: 80px;
-    margin-bottom: 0px;
-}
-
-header > div:first-of-type img {
-    width: 110px;
-    height: 80px;
-    margin-bottom: 0px;
+header > div:first-of-type > p {
+    text-align: center;
+    margin: 15px;
 }
 
 /* menu */
@@ -55,6 +51,7 @@ header > div:last-of-type {
     align-items: center;
     background-color: yellow;
     justify-content: center;
+    
 }
 
 header > div:last-of-type a {
@@ -75,6 +72,9 @@ header > div:last-of-type a:hover {
 body > div {
     background-color: brown;
     min-height: 400px;
+    width: 85%;
+    margin: 0 auto 0 auto;
+    align-self: stretch;
 }
 /* end Main */
 
@@ -93,6 +93,12 @@ footer > div {
     justify-content: center;
 }
 
-footer > img {
-    background-color: yellow;
+footer p {
+    margin: 5px 0px 0px 0px;
+}
+
+footer img {
+    width: 32px;
+    height: 32px;
+    margin: 4px 8px 4px 8px;
 }
