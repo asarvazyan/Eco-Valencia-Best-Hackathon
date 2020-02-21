@@ -46,14 +46,14 @@
 					zoomOffset: -1
 				}).addTo(mymap);
 				
-				var types = ['aceite', 'pilas', 'plastico', 'papel', 'vidrio'];
+				var types = ['aceite', 'pila', 'plastico', 'papel', 'vidrio'];
 
 				var myPoints = [
 						{
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'vidrio'"
+		        			"tipo_resid": "vidrio"
 		    				},
 		    				"geometry": 
 		    				{
@@ -65,7 +65,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'papel'"
+		        			"tipo_resid": "papel"
 		    				},
 		    				"geometry": 
 		    				{
@@ -77,7 +77,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'plastico'"
+		        			"tipo_resid": "plastico"
 		    				},
 		    				"geometry": 
 		    				{
@@ -89,7 +89,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'aceite'"
+		        			"tipo_resid": "aceite"
 		    				},
 		    				"geometry": 
 		    				{
@@ -101,7 +101,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'pila"
+		        			"tipo_resid": "pila"
 		    				},
 		    				"geometry": 
 		    				{
@@ -113,7 +113,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'vidrio'"
+		        			"tipo_resid": "vidrio"
 		    				},
 		    				"geometry": 
 		    				{
@@ -125,7 +125,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'papel'"
+		        			"tipo_resid": "papel"
 		    				},
 		    				"geometry": 
 		    				{
@@ -137,7 +137,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'plastico'"
+		        			"tipo_resid": "plastico"
 		    				},
 		    				"geometry": 
 		    				{
@@ -149,7 +149,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'aceite'"
+		        			"tipo_resid": "aceite"
 		    				},
 		    				"geometry": 
 		    				{
@@ -161,7 +161,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'pila"
+		        			"tipo_resid": "pila"
 		    				},
 		    				"geometry": 
 		    				{
@@ -173,7 +173,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'plastico'"
+		        			"tipo_resid": "plastico"
 		    				},
 		    				"geometry": 
 		    				{
@@ -185,7 +185,7 @@
 		    				"type": "Feature",
 		   					"properties": 
 		   					{
-		        			"tipo_resid": "'aceite'"
+		        			"tipo_resid": "aceite"
 		    				},
 		    				"geometry": 
 		    				{
@@ -195,21 +195,73 @@
 						}
 				];
 
+				
+				function getColor(d) {
+					if (d == 'aceite')
+						return '#E62100';
+					else if (d === 'pila')
+						return '#1F78B4';
+					else if (d === 'plastico')
+						return '#FBCC0A';
+					else if (d === 'papel')
+							return '#152A92';
+					else if (d === 'vidrio')
+						return '#00E621';
+					else
+						return '#000000'
+
+					/*
+				 	switch (d) {
+				    	case 'aceite':
+				      		return '#E62100';
+				    	case 'pila':
+				      return '#1F78B4';
+				    case 'plastico':
+				      return '#FBCC0A';
+				    case 'papel':
+				      return '#152A92';
+				    case 'vidrio':
+				      return '#00E621';
+				    default:
+				      return '#FFEDA0';
+
+				  }
+				  */
+				}
+				/*
 				var geojsonMarkerOptions = {
-				    radius: 8,
-				    fillColor: "#ff7800",
+				    radius: 10,
+				    fillColor: getColor(feature.properties.tipo_resid),
 				    color: "#000",
 				    weight: 1,
 				    opacity: 1,
 				    fillOpacity: 0.8
 				};
+				*/
+
+				L.geoJSON(myPoints, {
+					    pointToLayer: function (feature, latlng) {
+					    	console.log(feature.properties.tipo_resid);
+					        return L.circleMarker(latlng, {radius: 10, fillColor: getColor(feature.properties.tipo_resid), fillOpacity: 0.8, weight: 1, opacity: 1});
+					    }
+					}).addTo(mymap);
+				/*
 
 				L.geoJSON(myPoints, {
 				    pointToLayer: function (feature, latlng) {
-				        return L.circleMarker(latlng, geojsonMarkerOptions);
-				    }
-				}).addTo(mymap);
-
+				        		return L.circleMarker(latlng, {radius: 10, fillOpacity: 0.85, color: getColor(feature.properties.tipo_resid)});
+				     }).addTo(mymap);
+				/*
+				        		{
+				    							radius: 10,
+				    							fillColor: getColor(feature.properties.tipo_resid),
+				    							color: "#000",
+											    weight: 1,
+											    opacity: 1,
+											    fillOpacity: 0.85
+											} ).addTo(mymap);
+				 });
+	*/
 
 				// getContainers is only used with data... not called yet.
 				function getContainers(type) {
