@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="search.css">
-        <script src="search.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <header>
@@ -15,14 +15,15 @@
                 <img alt="" src="">
             </div>
             <div class="menu">
-                <div>Inicio</div>
-                <div>Buscador</div>
-                <div>Mapa</div>
-                <div>Usario</div>
+                <a href='#'>Inicio</a>
+                <a href='#'>Informaci'on</a>
+                <a href='#'>Buscador</a>
+                <a href='#'>Mapa</a>
+                <a href='#'>Usuario</a>
             </div>
         </header>
         <div>
-            <iframe scrolling="no" src="search.html"></iframe>
+            <iframe frameborder='0' scrolling='no' src="search.html" onload='resizeIframe(this)'></iframe>
         </div>
         <footer>
             <div>
