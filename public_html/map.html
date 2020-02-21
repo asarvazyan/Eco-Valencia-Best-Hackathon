@@ -46,21 +46,170 @@
 					zoomOffset: -1
 				}).addTo(mymap);
 				
-				var types = ['Envases Ligeros', 'Organico', 'Papel \/ Carton', 'VIDRIO'];
+				var types = ['aceite', 'pilas', 'plastico', 'papel', 'vidrio'];
 
-				function setUpMap() {
+				var myPoints = [
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'vidrio'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3789236268807361, 39.47093653238205]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'papel'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3702976426888416, 39.474871520398736]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'plastico'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3890516481209705, 39.47728419205835]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'aceite'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3775503358651111, 39.48010696684263]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'pila"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.40008089159020876, 39.46744637011887]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'vidrio'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3803398332405994, 39.49003794000522]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'papel'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3685810289193103, 39.485699730803624]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'plastico'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.36742231462487673, 39.45624917237179]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'aceite'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3890516481209705,39.49358326816988] 
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'pila"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.41930696580895876, 39.47337915430027]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'plastico'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3377678117562244, 39.469569972395334]
+		   	 				}
+						},
+						{
+		    				"type": "Feature",
+		   					"properties": 
+		   					{
+		        			"tipo_resid": "'aceite'"
+		    				},
+		    				"geometry": 
+		    				{
+		        			"type": "Point",
+		        			"coordinates": [-0.3297855577279041,39.479144154635904] 
+		   	 				}
+						}
+				];
 
-					var map = L.map('map').setView([39.74739, -105], 13);
-					L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-				    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-				    maxZoom: 18,
-				    id: 'mapbox/streets-v11',
-				    tileSize: 512,
-				    zoomOffset: -1,
-				    accessToken: 'your.mapbox.access.token'
-				}).addTo(map);
-					L.geoJSON(getContainers(types[0])).addTo(map);
-				}
+				var geojsonMarkerOptions = {
+				    radius: 8,
+				    fillColor: "#ff7800",
+				    color: "#000",
+				    weight: 1,
+				    opacity: 1,
+				    fillOpacity: 0.8
+				};
+
+				L.geoJSON(myPoints, {
+				    pointToLayer: function (feature, latlng) {
+				        return L.circleMarker(latlng, geojsonMarkerOptions);
+				    }
+				}).addTo(mymap);
+
 
 				// getContainers is only used with data... not called yet.
 				function getContainers(type) {
