@@ -334,3 +334,14 @@ footer img {
     border: 1px solid #4F8BA5;
     background-color: #69A3BC;
 }
+
+#kk {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#categoria {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
