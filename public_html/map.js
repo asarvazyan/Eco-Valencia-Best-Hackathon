@@ -1,14 +1,31 @@
-window.addEventListener('load', getData);
+//window.addEventListener('load', getData);
+
+
+//var types = ['Residuos Urbanos', 'Envases Ligeros', 'Organico', 'Papel \/ Carton', 'VIDRIO'];
+var types = ['Envases Ligeros', 'Organico', 'Papel \/ Carton', 'VIDRIO'];
 
 function getContainers(type) {
 	// Get map in JSON form
 	var mapObj = getData();
 	// Parse JSON and only store containers of given type
 	var mapFeatures = mapObj.features;
-
-	var mapType = mapFeatures
+	var mapType = mapFeatures.filter(function (entry) {
+		return entry.properties.tipo_resid === type; 
+	}); 
+	console.log(mapType);
+	return mapType;
+	/*	console.log(mapFeatures[0].properties.tipo_resid);
+	for (var i = 0; i < mapFeatures.length; i++) {
+		if (mapFeatures[i].properties.tipo_resid == type) {
 		
+			//console.log(mapFeatures[i].properties);
+			// Add to resulting GeoJSON object
 
+			mapType.append(mapFeatures[i]);
+		}
+	}	
+		
+	*/
 }
 
 
