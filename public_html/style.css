@@ -127,6 +127,8 @@ footer img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 70%;
+    margin: 0 auto;
 }
 
 #inicio > section > div {
@@ -136,6 +138,10 @@ footer img {
 
 #inicio > section > div > div {
     margin: 10px;
+}
+
+#inicio > section p {
+    text-align: justify;
 }
 
 #inicio > section img {
@@ -156,7 +162,7 @@ footer img {
 
 #info > div {
     margin: 10px 0px;
-    padding: 10px;
+    padding: 30px;
     display: flex;
     flex-direction: row;
 }
@@ -172,6 +178,50 @@ footer img {
 #info > div > div {
     margin-right: 10px;
 }
+
+#map {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#trade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trade > div:first-of-type {
+    margin: 10px;
+    padding: 10px;
+}
+
+#trade div.recompensa {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#trade > div:last-of-type div.recompensa {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+#trade div.recompensa > div:first-of-type {
+    margin-right: 5px;
+}
+
+#trade div.recompensa p:last-of-type {
+    text-align: right;
+}
+
+#trade img {
+    width: 42px;
+    height: 42px;
+}
+
 
 #user {
     display: flex;
