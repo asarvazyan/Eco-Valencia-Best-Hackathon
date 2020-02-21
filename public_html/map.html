@@ -208,36 +208,9 @@
 					else if (d === 'vidrio')
 						return '#00E621';
 					else
-						return '#000000'
-
-					/*
-				 	switch (d) {
-				    	case 'aceite':
-				      		return '#E62100';
-				    	case 'pila':
-				      return '#1F78B4';
-				    case 'plastico':
-				      return '#FBCC0A';
-				    case 'papel':
-				      return '#152A92';
-				    case 'vidrio':
-				      return '#00E621';
-				    default:
-				      return '#FFEDA0';
-
-				  }
-				  */
+						return '#000000';
 				}
-				/*
-				var geojsonMarkerOptions = {
-				    radius: 10,
-				    fillColor: getColor(feature.properties.tipo_resid),
-				    color: "#000",
-				    weight: 1,
-				    opacity: 1,
-				    fillOpacity: 0.8
-				};
-				*/
+				
 
 				L.geoJSON(myPoints, {
 					    pointToLayer: function (feature, latlng) {
@@ -245,23 +218,7 @@
 					        return L.circleMarker(latlng, {radius: 10, fillColor: getColor(feature.properties.tipo_resid), fillOpacity: 0.8, weight: 1, opacity: 1});
 					    }
 					}).addTo(mymap);
-				/*
-
-				L.geoJSON(myPoints, {
-				    pointToLayer: function (feature, latlng) {
-				        		return L.circleMarker(latlng, {radius: 10, fillOpacity: 0.85, color: getColor(feature.properties.tipo_resid)});
-				     }).addTo(mymap);
-				/*
-				        		{
-				    							radius: 10,
-				    							fillColor: getColor(feature.properties.tipo_resid),
-				    							color: "#000",
-											    weight: 1,
-											    opacity: 1,
-											    fillOpacity: 0.85
-											} ).addTo(mymap);
-				 });
-	*/
+	
 
 				// getContainers is only used with data... not called yet.
 				function getContainers(type) {
