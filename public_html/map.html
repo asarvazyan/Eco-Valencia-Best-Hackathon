@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Leaflet CSS and JS--->
-         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" 
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" 
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -37,7 +37,6 @@
         <div>
             <div id="mapid" style="width: 600px; height: 400px;"></div>
 			<script>
-				var types = ['Envases Ligeros', 'Organico', 'Papel \/ Carton', 'VIDRIO'];
 
 				var mymap = L.map('mapid').setView([39.46, -0.3666667], 12);
 
@@ -50,68 +49,23 @@
 					tileSize: 512,
 					zoomOffset: -1
 				}).addTo(mymap);
-				// Point styling
-				var geojsonMarkerOptions = {
-				    radius: 8,
-				    fillColor: "#ff7800",
-				    color: "#000",
-				    weight: 1,
-				    opacity: 1,
-				    fillOpacity: 0.8
-				};
+				var types = ['Envases Ligeros', 'Organico', 'Papel \/ Carton', 'VIDRIO'];
 
-				var myPoints = [{ "type": "Feature", "properties": { "codvia": "31110", "numportal": "28", "empresa": "FOVASA", "modelo": " ", "productor": "Domiciliaria", "tipo_carga": "Trasera", "tipo_resid": "Residuos Urbanos", "fecha_carga_sistema": "2019-06-03 08:57:22" }, "geometry": { "type": "Point", "coordinates": [ 39.46, -0.36 ] } },
-{ "type": "Feature", "properties": { "codvia": "31110", "numportal": "18", "empresa": "FOVASA", "modelo": " ", "productor": "Domiciliaria", "tipo_carga": "Trasera", "tipo_resid": "Residuos Urbanos", "fecha_carga_sistema": "2019-06-03 08:57:22" }, "geometry": { "type": "Point", "coordinates": [ 729330.164, 4371574.6994 ] } },
-{ "type": "Feature", "properties": { "codvia": "31110", "numportal": "22", "empresa": "FOVASA", "modelo": " ", "productor": "Domiciliaria", "tipo_carga": "Trasera", "tipo_resid": "Residuos Urbanos", "fecha_carga_sistema": "2019-06-03 08:57:22" }, "geometry": { "type": "Point", "coordinates": [ 729373.298499999567866, 4371570.0054 ] } },
-{ "type": "Feature", "properties": { "codvia": "60690", "numportal": "22", "empresa": "FCC", "modelo": "ROS_ROCA", "productor": "DOMICILIARIA", "tipo_carga": "Lateral Derecha", "tipo_resid": "Residuos Urbanos", "fecha_carga_sistema": "2019-06-03 08:56:24" }, "geometry": { "type": "Point", "coordinates": [ 721296.680100000463426, 4375625.8584 ] } },
-{ "type": "Feature", "properties": { "codvia": "67230", "numportal": "49", "empresa": "FCC", "modelo": "OTTO", "productor": "PERSONALIZADA", "tipo_carga": "Trasera", "tipo_resid": "Residuos Urbanos", "fecha_carga_sistema": "2019-06-03 08:56:24" }, "geometry": { "type": "Point", "coordinates": [ 728222.007399999536574, 4371049.4271 ] } },
-]	
-/*
-				var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-};
-				var myLines = [{
-    "type": "LineString",
-    "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
-}, {
-    "type": "LineString",
-    "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
-}];
-				
-L.geoJSON(myLines, {
-    style: myStyle
-}).addTo(mymap);
-*/
-	
-			var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-};
+				function setUpMap() {
 
-L.geoJSON(myPoints, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    }
-}).addTo(mymap);
-				/*
-				var geoData = getContainers(types[3]);
-				console.log(geoData[0]);
-				console.log(geoData[1]);
-				console.log(geoData[2]);
-				console.log(geoData[3]);
-				console.log(geoData[4]);
-				L.geoJSON(	geoData, {
-				    pointToLayer: function (feature, latlng) {
-				        return L.circleMarker(latlng, geojsonMarkerOptions);
-				    }
-				}).addTo(mymap);
-				*/
+					var map = L.map('map').setView([39.74739, -105], 13);
+					L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+				    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				    maxZoom: 18,
+				    id: 'mapbox/streets-v11',
+				    tileSize: 512,
+				    zoomOffset: -1,
+				    accessToken: 'your.mapbox.access.token'
+				}).addTo(map);
+					L.geoJSON(getContainers(types[0])).addTo(map);
+				}
+
+				// getContainers is only used with data... not called yet.
 				function getContainers(type) {
 					// Get map in JSON form
 					var mapObj = getData();
@@ -120,23 +74,17 @@ L.geoJSON(myPoints, {
 					var mapType = mapFeatures.filter(function (entry) {
 						return entry.properties.tipo_resid === type; 
 					}); 
-					//	console.log(mapType);
-					return mapType;
-					/*	console.log(mapFeatures[0].properties.tipo_resid);
-					for (var i = 0; i < mapFeatures.length; i++) {
-						if (mapFeatures[i].properties.tipo_resid == type) {
-						
-							//console.log(mapFeatures[i].properties);
-							// Add to resulting GeoJSON object
+					//TODO
+					// for each entry get coordinates
+					//mapType = mapType.
+					// transform to latlong
 
-							mapType.append(mapFeatures[i]);
-						}
-					}	
-						
-					*/
+					// set coordinates as latlong
+				
+					return mapType;
 				}
 
-
+				// getData is only used with data... not called yet.
 				function getData() {
 					var mapObj = null;
 					var xmlhttp = new XMLHttpRequest();
