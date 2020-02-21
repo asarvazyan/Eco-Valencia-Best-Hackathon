@@ -149,10 +149,29 @@ footer img {
 
 
 
-#info > div {
+#info {
     display: flex;
+    flex-direction: column;
 }
 
+#info > div {
+    margin: 10px 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#info p {
+    text-align: justify;
+}
+
+#info span {
+    font-weight: bold;
+}
+
+#info > div > div {
+    margin-right: 10px;
+}
 
 #user {
     display: flex;
