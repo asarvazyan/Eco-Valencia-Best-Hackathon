@@ -24,7 +24,7 @@ body {
     background-color: black;
 }
 
-header {
+body > header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -44,7 +44,7 @@ header > div:first-of-type {
     justify-content: center;
 }
 
-header > div:first-of-type > p {
+header > div:first-of-type > h1 {
     text-align: center;
     margin: 15px;
     font-size: 42px;
@@ -70,6 +70,10 @@ header > div:last-of-type a {
     transition: 0s background-color;
 }
 
+#here {
+    background-color: blue;
+}
+
 header > div:last-of-type a:hover {
     background-color: blue;
     transition-duration: 0.3s;
@@ -77,7 +81,7 @@ header > div:last-of-type a:hover {
 
 /* Main */
 body > div {
-    background-color: brown;
+    background-color: #FFE4D7;
     min-height: 400px;
     width: 85%;
     margin: 0 auto 0 auto;
@@ -108,4 +112,42 @@ footer img {
     width: 32px;
     height: 32px;
     margin: 4px 8px 4px 8px;
+}
+
+/* ESPECIFICOS */
+#incio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#inicio h2 {
+    text-align: center;
+    margin: 15px 0px;
+}
+
+#inicio > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#inicio > section > div {
+    display: flex;
+    flex-direction: row;
+}
+
+#inicio > section > div > div {
+    margin: 10px;
+}
+
+#inicio > section img {
+    margin: 10px;
+}
+
+#inicio img {
+    width: 250px;
+    height: 250px;
 }
