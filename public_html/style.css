@@ -27,7 +27,7 @@ body > header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #FFECD7;
+    background-color: #E7BF92;
     justify-content: space-between;
 }
 
@@ -54,6 +54,11 @@ header > div:last-of-type {
     background-color: #B27C3F;
     justify-content: center;
     
+}
+
+header div.menu {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 header > div:last-of-type a {
@@ -93,6 +98,7 @@ footer {
     background-color: red;
     justify-content: center;
     position: relative;
+    border-top: 1px solid black;
 }
 
 footer > div {
@@ -327,8 +333,4 @@ footer img {
 #user button:hover {
     border: 1px solid #4F8BA5;
     background-color: #69A3BC;
-}
-
-#trade {
-    
 }
