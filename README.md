@@ -10,7 +10,9 @@ Repositorio de Eco-Valencia, una aplicación web que muestra un mapa de todos lo
 * *The website uses the HTML/CSS/JS stack.*
 * El mapa ha sido implementado a través de la libreria open source Leaflet.
 * *The map has been implemented using the Leaflet open-source library.*
+
 Es importante notar que los datos debían de ser obtenidos de la base de datos publica de la ciudad de Valencia, pero durante el hackathon surgieron problemas y ninguno de los equipos pudo acceder a dicha base de datos. 
+
 *It is worth mentioning that the data was to be obtained through the public database of the city of Valencia but during the hackathon various issues arose and no team was able to access said database.*
 
 Proyecto realizado en 12 horas para el evento BEST Hackathon, por lo que se priorizaron cuestiones de funcionalidad frente a las de diseño para tener una demo lista y poder mostrarla en la seccion de presentación del projecto.
